@@ -5,59 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUDO TOP 1 | VIP PANEL</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Roboto', sans-serif; margin: 0; padding-bottom: 90px; }
-        .top-bar { background: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; border-bottom: 2px solid #f3ba2f; }
-        .user-info { background: #111; margin: 15px; padding: 20px; border-radius: 12px; border: 1px solid #f3ba2f; position: relative; }
-        .vip-level { position: absolute; top: 10px; right: 10px; background: #f3ba2f; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
-        .balance-title { font-size: 14px; color: #888; }
-        .balance-amount { font-size: 30px; font-weight: bold; color: #f3ba2f; margin: 5px 0; }
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
-        .btn { flex: 1; padding: 12px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 14px; }
+        body { background: #0b0e11; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding-bottom: 90px; }
+        .header { background: #1a1d23; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f3ba2f; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: #f3ba2f; font-weight: bold; font-size: 20px; }
+        
+        /* VIP Profile Section from your Screenshot */
+        .user-panel { background: linear-gradient(135deg, #1c2127 0%, #2b3139 100%); margin: 15px; padding: 20px; border-radius: 15px; border: 1px solid #333; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .vip-tag { position: absolute; top: 15px; right: 15px; background: #f3ba2f; color: #000; padding: 3px 10px; border-radius: 5px; font-weight: bold; font-size: 11px; text-transform: uppercase; }
+        .user-name { font-size: 14px; color: #aaa; margin-bottom: 5px; }
+        .balance { font-size: 32px; color: #f3ba2f; font-weight: bold; margin-bottom: 15px; }
+        .action-btns { display: flex; gap: 10px; }
+        .btn { flex: 1; padding: 12px; border-radius: 50px; text-align: center; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; }
         .btn-dep { background: #f3ba2f; color: #000; }
         .btn-wit { background: #333; color: #fff; border: 1px solid #444; }
-        .game-section { padding: 15px; }
-        .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .game-item { background: #1a1a1a; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
-        .game-item img { width: 100%; height: 110px; object-fit: cover; }
-        .game-label { padding: 10px; text-align: center; font-size: 13px; font-weight: bold; }
-        .bottom-nav { background: #111; position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #222; }
-        .nav-link { color: #888; text-decoration: none; font-size: 11px; text-align: center; }
-        .nav-link.active { color: #f3ba2f; }
-        .nav-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+
+        /* Game Grid - Professional Look */
+        .section-title { padding: 0 15px; color: #f3ba2f; font-size: 16px; font-weight: bold; margin-bottom: 10px; border-left: 4px solid #f3ba2f; margin-left: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 15px; }
+        .game-card { background: #1c2127; border-radius: 12px; overflow: hidden; border: 1px solid #333; text-align: center; transition: 0.3s; }
+        .game-card img { width: 100%; height: 110px; object-fit: cover; border-bottom: 1px solid #333; }
+        .game-title { padding: 10px; font-size: 13px; font-weight: bold; color: #eee; }
+
+        /* Bottom Navbar - Nagad88 Style */
+        .navbar { background: #1a1d23; position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #333; box-shadow: 0 -5px 15px rgba(0,0,0,0.5); }
+        .nav-item { text-align: center; color: #888; text-decoration: none; font-size: 11px; flex: 1; }
+        .nav-item.active { color: #f3ba2f; }
+        .nav-item span { display: block; font-size: 22px; margin-bottom: 3px; }
+        .dep-special { background: #f3ba2f; color: #000 !important; border-radius: 50px; padding: 5px 10px; font-weight: bold; margin-top: -5px; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div style="color:#f3ba2f; font-weight:bold;">LUDO TOP 1</div>
-        <div onclick="location.href='https://t.me/LudoTop1Admin'">🔔</div>
+    <div class="header">
+        <div class="logo">LUDO TOP 1</div>
+        <a href="https://t.me/LudoTop1Admin" style="text-decoration:none; color:#f3ba2f; font-size:20px;">🔔</a>
     </div>
 
-    <div class="user-info">
-        <span class="vip-level">VIP 1</span>
-        <div class="balance-title">স্বাগতম, Ludo Player</div>
-        <div class="balance-amount">৳ 0.00</div>
-        <div class="btn-group">
+    <div class="user-panel">
+        <span class="vip-tag">BRONZE VIP</span>
+        <div class="user-name">আইডি: Ludo-55829</div>
+        <div class="balance">৳ 0.00</div>
+        <div class="action-btns">
             <a href="https://t.me/LudoTop1Admin" class="btn btn-dep">ডিপোজিট</a>
             <a href="https://t.me/LudoTop1Admin" class="btn btn-wit">উইথড্র</a>
         </div>
     </div>
 
-    <div class="game-section">
-        <div style="color:#f3ba2f; margin-bottom:15px; font-weight:bold;">🔥 হট গেমস</div>
-        <div class="game-grid">
-            <div class="game-item"><img src="https://m.pinnacle.com/Cms_StaticPageImages/casino/aviator/aviator-og-image.jpg"><div class="game-label">Aviator</div></div>
-            <div class="game-item"><img src="https://images.ctfassets.net/u66i48p62v7r/5V9xX6o0rL9u9Z7x7u9Z7/0a9c8e8d3e6d8a7d3e6d8a7d3e6d8a7d/Crash_Game.jpg"><div class="game-label">Crash</div></div>
-            <div class="game-item"><img src="https://m.media-amazon.com/images/I/71z7R6u+mYL.png"><div class="game-label">Super Ace</div></div>
-            <div class="game-item"><img src="https://images.livecasinokings.com/app/uploads/2021/05/Crazy-Time-Evolution-Gaming.jpg"><div class="game-label">Crazy Time</div></div>
-        </div>
+    <div class="section-title">জনপ্রিয় গেমসমূহ</div>
+    <div class="grid">
+        <div class="game-card"><img src="https://m.pinnacle.com/Cms_StaticPageImages/casino/aviator/aviator-og-image.jpg"><div class="game-title">Aviator</div></div>
+        <div class="game-card"><img src="https://m.media-amazon.com/images/I/71z7R6u+mYL.png"><div class="game-title">Super Ace</div></div>
+        <div class="game-card"><img src="https://images.ctfassets.net/u66i48p62v7r/5V9xX6o0rL9u9Z7x7u9Z7/0a9c8e8d3e6d8a7d3e6d8a7d3e6d8a7d/Crash_Game.jpg"><div class="game-title">Crash Game</div></div>
+        <div class="game-card"><img src="https://images.livecasinokings.com/app/uploads/2021/05/Crazy-Time-Evolution-Gaming.jpg"><div class="game-title">Crazy Time</div></div>
+        <div class="game-card"><img src="https://assets.gamedesign.com/slots/fortune-gems-jili.jpg"><div class="game-title">Fortune Gems</div></div>
+        <div class="game-card"><img src="https://www.casinonewsdaily.com/wp-content/uploads/2016/07/roulette-table.jpg"><div class="game-title">Table Game</div></div>
     </div>
 
-    <div class="bottom-nav">
-        <a href="#" class="nav-link active"><span class="nav-icon">🏠</span>হোম</a>
-        <a href="https://t.me/LudoTop1Admin" class="nav-link"><span class="nav-icon">🤝</span>রেফার</a>
-        <a href="https://t.me/LudoTop1Admin" class="nav-link"><span class="nav-icon">💬</span>সাপোর্ট</a>
-        <a href="https://t.me/LudoTop1Admin" class="nav-link"><span class="nav-icon">👤</span>প্রোফাইল</a>
+    <div class="navbar">
+        <a href="#" class="nav-item active"><span>🏠</span>হোম</a>
+        <a href="https://t.me/LudoTop1Admin" class="nav-item"><span>👥</span>রেফার</a>
+        <a href="https://t.me/LudoTop1Admin" class="nav-item"><span class="dep-special">ডিপোজিট</span></a>
+        <a href="https://t.me/LudoTop1Admin" class="nav-item"><span>💬</span>সাপোর্ট</a>
+        <a href="https://t.me/LudoTop1Admin" class="nav-item"><span>👤</span>প্রোফাইল</a>
     </div>
 
 </body>
