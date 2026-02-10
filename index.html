@@ -1,75 +1,30 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUDO TOP 1 | OFFICIAL</title>
-    <style>
-        body { background: #000; color: #fff; font-family: 'Arial', sans-serif; margin: 0; padding-bottom: 90px; }
-        .header { background: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; border-bottom: 2px solid #f3ba2f; position: sticky; top: 0; z-index: 100; }
-        .logo { color: #f3ba2f; font-weight: bold; font-size: 18px; }
-        .user-card { background: linear-gradient(135deg, #1a1a1a, #222); margin: 15px; padding: 20px; border-radius: 12px; border: 1px solid #333; position: relative; }
-        .vip-badge { position: absolute; top: 15px; right: 15px; background: #f3ba2f; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
-        .balance-val { font-size: 28px; font-weight: bold; color: #f3ba2f; margin: 10px 0; }
-        .btn-group { display: flex; gap: 10px; }
-        .btn { flex: 1; padding: 12px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; font-size: 14px; }
-        .btn-dep { background: #f3ba2f; color: #000; }
-        .game-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 15px; }
-        .game-card { background: #1a1a1a; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+import random
+
+def start_game():
+    balance = 1000  # আপনার প্রাথমিক ব্যালেন্স
+    print(f"KX8 ক্লোন গেমে স্বাগতম! আপনার বর্তমান ব্যালেন্স: {balance} টাকা")
+
+    while balance > 0:
+        bet = int(input("\nআপনার বেটের পরিমাণ দিন (০ চাপুন বের হতে): "))
         
-        /* এখানে ছবিগুলো বড় এবং ক্লিয়ার করার জন্য স্টাইল */
-        .game-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
-        
-        .game-info { padding: 8px; text-align: center; font-size: 13px; font-weight: bold; color: #f3ba2f; }
-        .bottom-nav { background: #111; position: fixed; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #222; }
-        .nav-link { color: #888; text-decoration: none; font-size: 11px; text-align: center; }
-        .active { color: #f3ba2f; }
-    </style>
-</head>
-<body>
+        if bet == 0:
+            break
+        if bet > balance:
+            print("আপনার পর্যাপ্ত ব্যালেন্স নেই!")
+            continue
 
-    <div class="top-nav header">
-        <div class="logo">LUDO TOP 1</div>
-        <a href="https://t.me/LudoTop1Admin" style="text-decoration:none; color:#f3ba2f;">🔔 Support</a>
-    </div>
+        # ১ থেকে ১০ এর মধ্যে একটি র‍্যান্ডম নাম্বার জেনারেট করা
+        winning_number = random.randint(1, 10)
+        user_guess = int(input("১ থেকে ১০ এর মধ্যে একটি সংখ্যা অনুমান করুন: "))
 
-    <div class="user-card">
-        <span class="vip-badge">BRONZE VIP</span>
-        <div style="font-size:12px; color:#888;">মেইন ওয়ালেট</div>
-        <div class="balance-val">৳ 0.00</div>
-        <div class="btn-group">
-            <a href="https://t.me/LudoTop1Admin" class="btn btn-dep">ডিপোজিট করুন</a>
-        </div>
-    </div>
+        if user_guess == winning_number:
+            win_amount = bet * 2
+            balance += win_amount
+            print(f"অভিনন্দন! আপনি জিতেছেন। বর্তমান ব্যালেন্স: {balance}")
+        else:
+            balance -= bet
+            print(f"দুঃখিত! সঠিক সংখ্যাটি ছিল {winning_number}। বর্তমান ব্যালেন্স: {balance}")
 
-    <div style="padding-left:15px; color:#f3ba2f; font-weight:bold;">🎰 জনপ্রিয় গেমসমূহ</div>
-    
-    <div class="game-grid">
-        <div class="game-card">
-            <img src="https://static.vecteezy.com/system/resources/previews/022/636/388/non_2x/aviator-online-game-banner-red-plane-flying-up-illustration-free-vector.jpg">
-            <div class="game-info">Aviator</div>
-        </div>
-        <div class="game-card">
-            <img src="https://m.media-amazon.com/images/I/71z7R6u+mYL.png">
-            <div class="game-info">Super Ace</div>
-        </div>
-        <div class="game-card">
-            <img src="https://img.freepik.com/premium-photo/rocket-launch-startup-business-concept_31965-10334.jpg">
-            <div class="game-info">Crash Game</div>
-        </div>
-        <div class="game-card">
-            <img src="https://images.livecasinokings.com/app/uploads/2021/05/Crazy-Time-Evolution-Gaming.jpg">
-            <div class="game-info">Crazy Time</div>
-        </div>
-    </div>
+    print("গেম শেষ! আপনার সাথে থাকার জন্য ধন্যবাদ।")
 
-    <div class="bottom-nav">
-        <a href="#" class="nav-link active"><span>🏠</span><br>হোম</a>
-        <a href="https://t.me/LudoTop1Admin" class="nav-link"><span>👥</span><br>রেফার</a>
-        <a href="https://t.me/LudoTop1Admin" class="nav-link" style="background:#f3ba2f; color:#000; padding:5px 10px; border-radius:20px; font-weight:bold;">ডিপোজিট</a>
-        <a href="https://t.me/LudoTop1Admin" class="nav-link"><span>💬</span><br>সাপোর্ট</a>
-        <a href="https://t.me/LudoTop1Admin" class="nav-link"><span>👤</span><br>প্রোফাইল</a>
-    </div>
-
-</body>
-</html>
+start_game()
