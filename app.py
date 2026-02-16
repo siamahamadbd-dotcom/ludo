@@ -2,7 +2,7 @@ from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-# আপনার স্ক্রিনশটের মতো গেমিং ইন্টারফেস
+# আপনার গেমিং ইন্টারফেসের ডিজাইন
 GAME_LAYOUT = """
 <!DOCTYPE html>
 <html lang="bn">
@@ -11,51 +11,43 @@ GAME_LAYOUT = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apon Gaming Platform</title>
     <style>
-        body { font-family: Arial; background: #1a0033; color: white; margin: 0; padding-bottom: 80px; }
-        .top-nav { background: #2d004d; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .balance-chip { background: #00c853; padding: 6px 15px; border-radius: 20px; font-weight: bold; }
-        .banner-card { background: linear-gradient(135deg, #6600cc, #2d004d); margin: 15px; padding: 25px; border-radius: 20px; text-align: center; }
-        .play-now { background: white; color: #1a0033; border: none; padding: 12px 45px; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 15px; }
-        .table-card { background: #2d004d; margin: 10px 15px; padding: 18px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; border-left: 6px solid #ff00ff; }
-        .prize-tag { color: #00ff00; font-weight: bold; font-size: 18px; }
-        .entry-fee { background: white; color: black; border: none; padding: 8px 20px; border-radius: 10px; font-weight: bold; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #2d004d; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #3d007a; }
-        .nav-link { color: #b366ff; text-decoration: none; font-size: 12px; text-align: center; }
-        .active { color: white; }
+        body { font-family: Arial, sans-serif; background-color: #2c003e; color: white; margin: 0; padding: 0; text-align: center; }
+        .top-nav { background: #4b0082; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .balance { background: #ffcc00; color: black; padding: 5px 15px; border-radius: 20px; font-weight: bold; }
+        .container { padding: 20px; }
+        .card { background: #3d0066; border-radius: 15px; padding: 20px; margin-bottom: 20px; border: 1px solid #5e0099; }
+        .btn-join { background: #00c853; color: white; border: none; padding: 10px 25px; border-radius: 5px; font-size: 16px; cursor: pointer; }
+        .footer-nav { position: fixed; bottom: 0; width: 100%; background: #1a0029; display: flex; justify-content: space-around; padding: 10px 0; border-top: 2px solid #4b0082; }
+        .nav-item { color: #b39ddb; text-decoration: none; font-size: 12px; }
     </style>
 </head>
 <body>
     <div class="top-nav">
-        <div><b>Aponbai1</b><br><small style="color:gold;">Profile ▶</small></div>
-        <div class="balance-chip">৳ ২.০০ +</div>
+        <span>Apon Gaming</span>
+        <div class="balance">৳ ২.০০</div>
     </div>
 
-    <div class="banner-card">
-        <img src="https://i.ibb.co/VWVm0Rz/ludo-icon.png" width="90"><br>
-        <button class="play-now">PLAY NOW</button>
-    </div>
-
-    <div style="padding: 0 15px;">
-        <h3 style="color:#b366ff;">🏆 স্পিড লুডু টুর্নামেন্ট</h3>
+    <div class="container">
+        <h2>স্পিড লুডু টুর্নামেন্ট</h2>
         
-        <div class="table-card">
-            <div><b>Bronze Arena</b><br><small>সময়: ৫ মিনিট</small></div>
-            <div class="prize-tag">৳ ৫০.০</div>
-            <button class="entry-fee">৳ ২৮.০</button>
+        <div class="card">
+            <h3>Bronze Arena</h3>
+            <p>এন্ট্রি ফি: ৳ ২৮ | প্রাইজ: ৳ ৫০</p>
+            <button class="btn-join">জয়েন করুন</button>
         </div>
 
-        <div class="table-card" style="border-left-color: gold;">
-            <div><b>Gold Zone</b><br><small>সময়: ৫ মিনিট</small></div>
-            <div class="prize-tag">৳ ২২৫.০</div>
-            <button class="entry-fee">৳ ১২৫.০</button>
+        <div class="card">
+            <h3>Gold Zone</h3>
+            <p>এন্ট্রি ফি: ৳ ১২৫ | প্রাইজ: ৳ ২২৫</p>
+            <button class="btn-join">জয়েন করুন</button>
         </div>
     </div>
 
-    <div class="bottom-nav">
-        <a href="/" class="nav-link active">🏠<br>Home</a>
-        <a href="#" class="nav-link">💰<br>Add Cash</a>
-        <a href="#" class="nav-link">📢<br>Refer</a>
-        <a href="#" class="nav-link">💳<br>Wallet</a>
+    <div class="footer-nav">
+        <a href="#" class="nav-item">🏠 হোম</a>
+        <a href="#" class="nav-item">🏆 টুর্নামেন্ট</a>
+        <a href="#" class="nav-item">💰 ওয়ালেট</a>
+        <a href="#" class="nav-item">👤 প্রোফাইল</a>
     </div>
 </body>
 </html>
@@ -65,5 +57,5 @@ GAME_LAYOUT = """
 def home():
     return render_template_string(GAME_LAYOUT)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=10000)
+if __name__ == '__main__':
+    app.run(debug=True)
